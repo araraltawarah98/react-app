@@ -1,0 +1,79 @@
+.header {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header .logo > img {
+  margin-left: 4px;
+  width: 30px;
+}
+
+.header .menu {
+  min-width: 500px;
+  width: 50%;
+}
+
+.header .wrapper-side {
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.header .wrapper-side > img {
+  align-self: center;
+}
+
+.header .wrapper-side .shopping-card {
+  min-width: 20px;
+  width: 20%;
+}
+
+.header .wrapper-side .profile-picture {
+  min-width: 80px;
+  width: 80%;
+}
+
+.header .menu ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.menu-icon img {
+  width: 20px;
+}
+
+.main {
+  display: flex;
+  padding-bottom: 32px;
+  width: 100%;
+}
+
+.menu .menu-item a {
+  color: black;
+}
+
+.menu-item:hover {
+  background-color: #9c8e76;
+}
+
+.menu-item:hover a {
+  color: white;
+}
+
+.active {
+  background-color: #eb5757;
+}
+
+.menu .active a {
+  color :white;
+}
