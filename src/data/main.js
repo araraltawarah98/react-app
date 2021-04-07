@@ -24,9 +24,9 @@ const heroImage = {
   alt: "Mocha Late",
 };
 
-const HotCupImage = {
+const hotCupImage = {
   src: HotCup,
   alt: "Hot Cup",
 };
 
-export { bannerImages, heroImage, HotCupImage };
+export { bannerImages, heroImage, hotCupImage };

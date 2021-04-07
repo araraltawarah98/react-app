@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CoffeeItem from "../CoffeeItem/CoffeeItem";
-import { bannerImages, heroImage, HotCupImage } from "../../data/main";
+import { bannerImages, heroImage, hotCupImage } from "../../data/main";
 import "./Main.css";
 
 class HeroImage extends Component {
@@ -45,9 +45,9 @@ class HeroImage extends Component {
                 />
               );
             })}
-            <div class="coffee-item coffee-cup">
-              <div class="view-more">
-                <img src={HotCupImage.src} alt={HotCupImage.alt} />
+            <div className="coffee-item coffee-cup">
+              <div className="view-more">
+                <img src={hotCupImage.src} alt={hotCupImage.alt} />
                 <p>View More </p>
               </div>
             </div>
