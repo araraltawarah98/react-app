@@ -1,39 +1,18 @@
 import React, { Component } from "react";
-import CoffeeItem from "../CoffeeItem/coffeeItem";
-
-//Images
-import Caramelfrappe from "../../assets/images/caramel-frappe.png";
-//import HotCup from "../../assets/images/hot-cup.png";
-import IcedCoffee from "../../assets/images/iced-coffee.png";
-import MochaLate from "../../assets/images/mocha-late.png";
-import MochaLateBrown from "../../assets/images/mocha-late-brown.png";
-
-//CSS
-import "./heroImage.css";
+import CoffeeItem from "../CoffeeItem/CoffeeItem";
+import { bannerImages, heroImage, HotCupImage } from "../../data/main";
+import "./Main.css";
 
 class HeroImage extends Component {
   state = {
-    images: [
-      {
-        src: IcedCoffee,
-        alt: "Iced Coffee",
-      },
-      {
-        src: Caramelfrappe,
-        alt: "Caramel Frappe",
-      },
-      {
-        src: MochaLateBrown,
-        alt: "Mocha Late Brown",
-      },
-    ],
+    bannerImages,
   };
 
   render() {
     return (
       <div className="main">
         <div className="hero-image">
-          <img src={MochaLate} alt="Mocha Late" />
+          <img src={heroImage.src} alt={heroImage.alt} />
           <h4 className="text-center">Mocha Late</h4>
           <p className="text-center">
             Coffee is a brewed drink prepared from roasted coffee beans, the
@@ -56,16 +35,22 @@ class HeroImage extends Component {
             <p>Top Packs</p>
           </div>
           <div className="coffee-list">
-            {this.state.images.map((element, index) => {
+            {this.state.bannerImages.map((element, index) => {
               return (
                 <CoffeeItem
-                  key={element.src}
+                  key={index}
                   src={element.src}
                   alt={element.alt}
                   title={element.alt}
                 />
               );
             })}
+            <div class="coffee-item coffee-cup">
+              <div class="view-more">
+                <img src={HotCupImage.src} alt={HotCupImage.alt} />
+                <p>View More </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

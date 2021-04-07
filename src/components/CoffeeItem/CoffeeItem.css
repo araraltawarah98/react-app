@@ -1,0 +1,14 @@
+.coffee-item {
+  box-sizing: border-box;
+  height: 400px;
+  margin: auto;
+  min-width: 217px;
+  padding: 0 10px;
+  width: 25%;
+}
+
+.coffee-item > img {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}

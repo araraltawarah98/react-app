@@ -1,11 +1,11 @@
 import React from "react";
-import "./coffeeItem.css";
+import "./CoffeeItem.css";
 
-const CoffeeItem = (props) => {
+const CoffeeItem = ({ src, alt, title }) => {
   return (
     <div className="coffee-item">
-      <img src={props.src} alt={props.alt} />
-      <h4 className="text-center">{props.alt}</h4>
+      <img src={src} alt={alt} />
+      <h4 className="text-center">{title}</h4>
       <p className="text-center">
         Coffee is a brewed drink prepared from roasted coffee beans, the seeds
         of berries from certain Coffea species.
