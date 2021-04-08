@@ -46,14 +46,14 @@ class Header extends Component {
         </div>
         <div className={"menu " + this.toggleDisplay()}>
           <ul>
-            {this.state.menuItems.map((element, index) => {
+            {this.state.menuItems.map((element) => {
               return (
                 <li
-                  className={"menu-item " + this.isActive(active, element)}
-                  key={index}
-                  onClick={() => onActive(element)}
+                  className={"menu-item " + this.isActive(active, element.name)}
+                  key={element.id}
+                  onClick={() => onActive(element.name)}
                 >
-                  <a href="#">{element}</a>
+                  <a href="#">{element.label}</a>
                 </li>
               );
             })}

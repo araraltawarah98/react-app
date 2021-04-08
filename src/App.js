@@ -6,7 +6,7 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    active: "Home",
+    active: "home",
   };
 
   /**
@@ -23,7 +23,7 @@ class App extends Component {
         <div className="wrapper">
           <Header onActive={this.handleActive} active={this.state.active} />
           <Switch>
-            <Route path={["/home", "/"]} component={HomePage} />
+            <Route exact path={["/home", "/"]} component={HomePage} />
           </Switch>
         </div>
       </Router>

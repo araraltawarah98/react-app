@@ -27,12 +27,12 @@ const images = [
 ];
 
 const menuItems = [
-  "Home",
-  "About Us",
-  "Our Lands",
-  "Our Suppliers",
-  "Products",
-  "Contact Us",
+  { name: "home", label: "Home", id: 1 },
+  { name: "about-us", label: "About Us", id: 2 },
+  { name: "our-land", label: "Our Lands", id: 3 },
+  { name: "our-suppliers", label: "Our Suppliers", id: 4 },
+  { name: "products", label: "Products", id: 5 },
+  { name: "contact-us", label: "Contact Us", id: 6 },
 ];
 
 export { images, menuItems };
