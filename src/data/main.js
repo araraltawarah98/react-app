@@ -6,27 +6,32 @@ import MochaLateBrown from "../assets/images/mocha-late-brown.png";
 
 const bannerImages = [
   {
-    src: Caramelfrappe,
     alt: "Caramel Frappe",
+    id: 1,
+    src: Caramelfrappe,
   },
   {
-    src: IcedCoffee,
     alt: "Iced Coffee",
+    id: 2,
+    src: IcedCoffee,
   },
   {
-    src: MochaLateBrown,
     alt: "Mocha Late Brown",
+    id: 3,
+    src: MochaLateBrown,
   },
 ];
 
 const heroImage = {
-  src: MochaLate,
   alt: "Mocha Late",
+  id: 1,
+  src: MochaLate,
 };
 
 const hotCupImage = {
-  src: HotCup,
   alt: "Hot Cup",
+  id: 1,
+  src: HotCup,
 };
 
 export { bannerImages, heroImage, hotCupImage };

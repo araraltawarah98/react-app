@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header } from "./components";
-import HomePage from "./pages/HomePage/HomePage";
+import { HomePage } from "./pages";
 import "./App.css";
 
 class App extends Component {
@@ -18,10 +19,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <Header onActive={this.handleActive} active={this.state.active} />
-        <HomePage />
-      </div>
+      <Router>
+        <div className="wrapper">
+          <Header onActive={this.handleActive} active={this.state.active} />
+          <Switch>
+            <Route path={["/home", "/"]} component={HomePage} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

@@ -1,17 +1,18 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { images, menuItems } from "../../../data/header";
 import "./Header.css";
 
 class Header extends Component {
   state = {
+    isDisplayed: false,
     menuItems,
-    display: false,
   };
 
   /**
    * Checks the active value to add class "active"
-   * @param {String} item
    * @param {String} active
+   * @param {String} item
    * @returns {Boolean} If active value equal item name, return "active", else null
    */
   isActive = (active, item) => {
@@ -22,7 +23,7 @@ class Header extends Component {
    * Toggle display value
    */
   onMenu = () => {
-    this.setState({ display: !this.state.display });
+    this.setState({ isDisplayed: !this.state.isDisplayed });
   };
 
   /**
@@ -30,7 +31,7 @@ class Header extends Component {
    * @returns {Boolean} If the display is true, return "display-toggle", else null.
    */
   toggleDisplay = () => {
-    return this.state.display === true ? "display-toggle" : "";
+    return this.state.isDisplayed === true ? "display-toggle" : "";
   };
 
   render() {
@@ -38,10 +39,10 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="logo">
-          <img src={images[0].src} alt={images[0].alt} />
+          <img alt={images[0].alt} src={images[0].src} />
         </div>
         <div className="menu-icon" onClick={() => this.onMenu()}>
-          <img src={images[1].src} alt={images[1].alt} />
+          <img alt={images[1].alt} src={images[1].src} />
         </div>
         <div className={"menu " + this.toggleDisplay()}>
           <ul>
@@ -49,8 +50,8 @@ class Header extends Component {
               return (
                 <li
                   className={"menu-item " + this.isActive(active, element)}
-                  onClick={() => onActive(element)}
                   key={index}
+                  onClick={() => onActive(element)}
                 >
                   <a href="#">{element}</a>
                 </li>
@@ -60,19 +61,24 @@ class Header extends Component {
         </div>
         <div className="wrapper-side">
           <img
+            alt={images[3].alt}
             className="shopping-card"
             src={images[3].src}
-            alt={images[3].alt}
           />
           <img
+            alt={images[2].alt}
             className="profile-picture"
             src={images[2].src}
-            alt={images[2].alt}
           />
         </div>
       </div>
     );
   }
 }
+
+Header.protoTypes = {
+  active: PropTypes.string.isRequired,
+  onActive: PropTypes.func.isRequired,
+};
 
 export default Header;

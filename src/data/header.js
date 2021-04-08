@@ -5,20 +5,24 @@ import shoppingCard from "../assets/images/shopping-card.png";
 
 const images = [
   {
-    src: coffeeBeans,
     alt: "Coffee Beans",
+    id: 1,
+    src: coffeeBeans,
   },
   {
-    src: menuIcon,
     alt: "Menu Icon",
+    id: 2,
+    src: menuIcon,
   },
   {
-    src: profileImage,
     alt: "Profile Image",
+    id: 3,
+    src: profileImage,
   },
   {
-    src: shoppingCard,
     alt: "Shopping Card",
+    id: 4,
+    src: shoppingCard,
   },
 ];
 

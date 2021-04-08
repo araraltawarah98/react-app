@@ -1,15 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Main, GridItems } from "../../components";
 
-class HomePage extends Component {
-  render() {
-    return (
-      <div>
-        <Main />
-        <GridItems />
-      </div>
-    );
-  }
-}
+const HomePage = () => {
+  return (
+    <div>
+      <Main />
+      <GridItems />
+    </div>
+  );
+};
 
 export default HomePage;

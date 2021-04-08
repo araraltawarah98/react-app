@@ -3,7 +3,7 @@ import CoffeeItem from "../CoffeeItem/CoffeeItem";
 import { bannerImages, heroImage, hotCupImage } from "../../data/main";
 import "./Main.css";
 
-class HeroImage extends Component {
+class Main extends Component {
   state = {
     bannerImages,
   };
@@ -14,7 +14,7 @@ class HeroImage extends Component {
         <div className="hero-image">
           <img src={heroImage.src} alt={heroImage.alt} />
           <h4 className="text-center">Mocha Late</h4>
-          <p className="text-center">
+          <p className="text-center light-brown-color">
             Coffee is a brewed drink prepared from roasted coffee beans, the
             seeds of berries from certain Coffea species.
           </p>
@@ -27,20 +27,20 @@ class HeroImage extends Component {
           <div className="text-banner">
             <p className="be-active">Be Active</p>
             <h2>Barnsley Brew Coffee</h2>
-            <p>
+            <p className="light-brown-color">
               Coffee is a brewed drink prepared from roasted coffee beans, the
               seeds of berries from certain Coffea species. When coffee berries
               turn from.
             </p>
-            <p>Top Packs</p>
+            <p className="light-brown-color">Top Packs</p>
           </div>
           <div className="coffee-list">
             {this.state.bannerImages.map((element, index) => {
               return (
                 <CoffeeItem
-                  key={index}
-                  src={element.src}
                   alt={element.alt}
+                  key={element.id}
+                  src={element.src}
                   title={element.alt}
                 />
               );
@@ -48,7 +48,7 @@ class HeroImage extends Component {
             <div className="coffee-item coffee-cup">
               <div className="view-more">
                 <img src={hotCupImage.src} alt={hotCupImage.alt} />
-                <p>View More </p>
+                <h4 className="text-center">View More </h4>
               </div>
             </div>
           </div>
@@ -58,4 +58,4 @@ class HeroImage extends Component {
   }
 }
 
-export default HeroImage;
+export default Main;

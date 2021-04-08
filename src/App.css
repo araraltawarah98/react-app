@@ -19,7 +19,7 @@ a {
   text-decoration: none;
 }
 
-p {
+.light-brown-color {
   color: #9c8e76;
 }
 
@@ -69,11 +69,11 @@ p {
   }
 }
 
-@media only screen and (max-width: 804px){
+@media only screen and (max-width: 804px) {
   .header {
     flex-wrap: wrap;
   }
-  
+
   .logo {
     flex: 1;
     margin-left: 18px;
@@ -83,7 +83,7 @@ p {
     display: block;
     order: -1;
   }
-  
+
   .header .menu {
     display: none;
     min-width: auto;
