@@ -3,10 +3,10 @@ import { Main, GridItems } from "../../components";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Main />
       <GridItems />
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Header } from "./components";
-import { HomePage } from "./pages";
+import { HomePage, SignUpPage } from "./pages";
 import "./App.css";
 
 class App extends Component {
@@ -23,7 +23,12 @@ class App extends Component {
         <div className="wrapper">
           <Header onActive={this.handleActive} active={this.state.active} />
           <Switch>
-            <Route exact path={["/home", "/"]} component={HomePage} />
+            <Route exact path={["/home", "/"]}>
+              <HomePage />
+            </Route>
+            <Route path="/signup">
+              <SignUpPage />
+            </Route>
           </Switch>
         </div>
       </Router>
