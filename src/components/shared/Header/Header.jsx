@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { images, menuItems } from "../../../data/header";
+import {
+  logo,
+  menuIcon,
+  menuItems,
+  profileImage,
+  shoopingCardImage,
+} from "../../../data";
 import "./Header.css";
 
 class Header extends Component {
   state = {
     isDisplayed: false,
-    menuItems,
   };
 
   /**
    * Checks the active value to add class "active"
    * @param {String} active
    * @param {String} item
-   * @returns {Boolean} If active value equal item name, return "active", else null
+   * @returns {String} If active value equal item name, return "active", else null
    */
-  isActive = (active, item) => {
+  addActiveClass = (active, item) => {
     return active === item ? "active" : "";
   };
 
@@ -28,10 +33,10 @@ class Header extends Component {
 
   /**
    * Checks display value to add class "display-toggle".
-   * @returns {Boolean} If the display is true, return "display-toggle", else null.
+   * @returns {String} If the display is true, return "display-toggle", else null.
    */
   toggleDisplay = () => {
-    return this.state.isDisplayed === true ? "display-toggle" : "";
+    return this.state.isDisplayed ? "display-toggle" : "";
   };
 
   render() {
@@ -39,17 +44,19 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="logo">
-          <img alt={images[0].alt} src={images[0].src} />
+          <img alt={logo.alt} src={logo.src} />
         </div>
         <div className="menu-icon" onClick={() => this.onMenu()}>
-          <img alt={images[1].alt} src={images[1].src} />
+          <img alt={menuIcon.alt} src={menuIcon.src} />
         </div>
         <div className={"menu " + this.toggleDisplay()}>
           <ul>
-            {this.state.menuItems.map((element) => {
+            {menuItems.map((element) => {
               return (
                 <li
-                  className={"menu-item " + this.isActive(active, element.name)}
+                  className={
+                    "menu-item " + this.addActiveClass(active, element.name)
+                  }
                   key={element.id}
                   onClick={() => onActive(element.name)}
                 >
@@ -61,14 +68,14 @@ class Header extends Component {
         </div>
         <div className="wrapper-side">
           <img
-            alt={images[3].alt}
+            alt={shoopingCardImage.alt}
             className="shopping-card"
-            src={images[3].src}
+            src={shoopingCardImage.src}
           />
           <img
-            alt={images[2].alt}
+            alt={profileImage.alt}
             className="profile-picture"
-            src={images[2].src}
+            src={profileImage.src}
           />
         </div>
       </div>
