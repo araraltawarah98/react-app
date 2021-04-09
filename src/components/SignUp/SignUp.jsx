@@ -17,10 +17,56 @@ class SignUp extends Component {
   getValue = (name) => {
     return this.state.fields.find((element) => element.name === name).value;
   };
+
+  handleValidateInput = (event, name) => {
+    const inputValue = event.target.value;
+    switch (name) {
+      case "Company":
+        this.setValue(inputValue, name);
+        this.validateCompany(name);
+        break;
+      case "Confirm Password":
+        this.setValue(inputValue, name);
+        this.validateConfirmPassword(name);
+        break;
+      case "Email":
+        this.setValue(inputValue, name);
+        this.validateEmail(name);
+        break;
+      case "Password":
+        this.setValue(inputValue, name);
+        this.validatePassword(name);
+        break;
+    }
+  };
+
+  handleSumbit = (event) => {
+    event.preventDefault();
+    this.validateCompany("Company");
+    this.validateConfirmPassword("Confirm Password");
+    this.validateEmail("Email");
+    this.validatePassword("Password");
+    const handleDisplay = this.state.fields.find(
+      (elemet) => elemet.isDisplayed
+    );
+
+    if (!handleDisplay && this.state.selected !== "Choose Your City") {
+      localStorage.setItem(this.state.email, this.userData());
+      this.props.history.replace("/");
+    }
+  };
+  
   setDisplayValue = (name, value) => {
     const fields = [...this.state.fields];
     const index = fields.findIndex((element) => element.name === name);
     fields[index].isDisplayed = value;
+    this.setState({ fields });
+  };
+
+  setValue = (value, name) => {
+    const fields = [...this.state.fields];
+    const index = fields.findIndex((element) => element.name === name);
+    fields[index].value = value;
     this.setState({ fields });
   };
 
@@ -30,13 +76,6 @@ class SignUp extends Component {
       data[element.name] = element.value;
     });
     return JSON.stringify(data);
-  };
-
-  setValue = (value, name) => {
-    const fields = [...this.state.fields];
-    const index = fields.findIndex((element) => element.name === name);
-    fields[index].value = value;
-    this.setState({ fields });
   };
 
   validateCity = (event) => {
@@ -87,44 +126,6 @@ class SignUp extends Component {
       this.setDisplayValue(name, true);
     } else {
       this.setDisplayValue(name, false);
-    }
-  };
-
-  handleValidateInput = (event, name) => {
-    const inputValue = event.target.value;
-    switch (name) {
-      case "Company":
-        this.setValue(inputValue, name);
-        this.validateCompany(name);
-        break;
-      case "Confirm Password":
-        this.setValue(inputValue, name);
-        this.validateConfirmPassword(name);
-        break;
-      case "Email":
-        this.setValue(inputValue, name);
-        this.validateEmail(name);
-        break;
-      case "Password":
-        this.setValue(inputValue, name);
-        this.validatePassword(name);
-        break;
-    }
-  };
-
-  handleSumbit = (event) => {
-    event.preventDefault();
-    this.validateCompany("Company");
-    this.validateConfirmPassword("Confirm Password");
-    this.validateEmail("Email");
-    this.validatePassword("Password");
-    const handleDisplay = this.state.fields.find(
-      (elemet) => elemet.isDisplayed
-    );
-
-    if (!handleDisplay && this.state.selected !== "Choose Your City") {
-      localStorage.setItem(this.state.email, this.userData());
-      this.props.history.replace("/");
     }
   };
 
