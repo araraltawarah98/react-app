@@ -3,7 +3,7 @@ import CoffeeItem from "../CoffeeItem/CoffeeItem";
 import { bannerImages, heroImage, hotCupImage } from "../../data";
 import "./Main.css";
 
-const Main = () => {
+function Main() {
   return (
     <div className="main">
       <div className="hero-image">
@@ -50,6 +50,6 @@ const Main = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Main;

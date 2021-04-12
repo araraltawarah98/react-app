@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./CoffeeItem.css";
 
-const CoffeeItem = ({ alt, src, title }) => {
+function CoffeeItem({ alt, src, title }) {
   return (
     <div className="coffee-item">
       <img alt={alt} src={src} />
@@ -13,7 +13,7 @@ const CoffeeItem = ({ alt, src, title }) => {
       </p>
     </div>
   );
-};
+}
 
 CoffeeItem.protoTypes = {
   alt: PropTypes.string.isRequired,

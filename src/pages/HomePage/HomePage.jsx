@@ -1,13 +1,13 @@
 import React from "react";
 import { Main, GridItems } from "../../components";
 
-const HomePage = () => {
+function HomePage() {
   return (
     <div>
       <Main />
       <GridItems />
     </div>
   );
-};
+}
 
 export default HomePage;

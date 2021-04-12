@@ -3,7 +3,7 @@ import CoffeeItem from "../CoffeeItem/CoffeeItem";
 import { coffeeItems } from "../../data";
 import "./GridItems.css";
 
-const GridItems = () => {
+function GridItems() {
   return (
     <div className="grid-items">
       {coffeeItems.map((element) => {
@@ -13,6 +13,6 @@ const GridItems = () => {
       })}
     </div>
   );
-};
+}
 
 export default GridItems;
