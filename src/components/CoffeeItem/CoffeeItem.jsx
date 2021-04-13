@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./CoffeeItem.css";
 
-function CoffeeItem({ alt, src, title }) {
+function CoffeeItem({ alt, children, src, title }) {
   return (
     <div className="coffee-item">
       <img alt={alt} src={src} />
@@ -11,6 +11,7 @@ function CoffeeItem({ alt, src, title }) {
         Coffee is a brewed drink prepared from roasted coffee beans, the seeds
         of berries from certain Coffea species.
       </p>
+      {children}
     </div>
   );
 }

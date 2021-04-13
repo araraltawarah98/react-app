@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
   logo,
@@ -54,7 +55,7 @@ function Header({ active, onActive }) {
                 key={element.id}
                 onClick={() => onActive(element.name)}
               >
-                <a href="#">{element.label}</a>
+                <Link to={"/" + element.name}>{element.label}</Link>
               </li>
             );
           })}

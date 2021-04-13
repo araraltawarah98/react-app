@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AboutPage, HomePage } from "./pages";
 import { Header } from "./components";
-import { HomePage } from "./pages";
 import "./App.css";
 
 function App() {
@@ -19,6 +19,9 @@ function App() {
     <Router>
       <div className="wrapper">
         <Header onActive={handleActive} active={active} />
+        <Switch>
+          <Route exact path={"/about-us/:id"} component={AboutPage} />
+        </Switch>
         <Switch>
           <Route exact path={["/home", "/"]} component={HomePage} />
         </Switch>

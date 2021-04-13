@@ -3,22 +3,22 @@ import mochaLateBrown from "../assets/images/mocha-late-brown.png";
 
 const images = [
   {
-    alt: "double Espresso",
+    alt: "Double Espresso",
     id: 1,
     src: doubleEspresso,
   },
   {
-    alt: "double Espresso",
+    alt: "Double Espresso",
     id: 2,
     src: doubleEspresso,
   },
   {
-    alt: "double Espresso",
+    alt: "Double Espresso",
     id: 3,
     src: doubleEspresso,
   },
   {
-    alt: "double Espresso",
+    alt: "Double Espresso",
     id: 4,
     src: doubleEspresso,
   },
