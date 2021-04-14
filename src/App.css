@@ -1,38 +1,113 @@
-.App {
+@font-face {
+  font-family: Google sans;
+  src: url("./assets/fonts/ProductSans-Regular.ttf");
+}
+
+body {
+  background: linear-gradient(180deg, rgba(228, 239, 233, 0) 0%, #ecf8f1 0%);
+  margin: 0;
+  font-family: Google sans;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 80%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.light-brown-color {
+  color: #9c8e76;
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@media screen and (max-width: 1300px) {
+  .hero-image {
+    display: none;
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .hero-banner .coffee-item {
+    width: 25%;
+    min-width: auto;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (min-width: 657px) and (max-width: 768px) {
+  .hero-banner .coffee-list > div:nth-child(1) {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .hero-banner .coffee-item {
+    min-width: 0;
+    width: 192.3px;
+  }
+}
+
+@media only screen and (max-width: 656px) {
+  .hero-banner .coffee-list > div:nth-child(1),
+  .hero-banner .coffee-list > div:nth-child(2) {
+    display: none;
+  }
+  .hero-banner .coffee-item {
+    min-width: 0;
+    width: 50%;
+  }
+
+  .coffee-cup .view-more {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .text-banner {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 804px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    flex: 1;
+    margin-left: 18px;
+  }
+
+  .menu-icon {
+    display: block;
+    order: -1;
+  }
+
+  .header .menu {
+    display: none;
+    min-width: auto;
+    order: 2;
+    width: 100%;
+  }
+
+  .header .display-toggle {
+    display: block;
+  }
+
+  .header .menu ul {
+    background: #eb5757;
+    flex-direction: column;
+    margin-top: -15px;
+    position: relative;
+  }
+
+  .header .wrapper-side {
+    margin-right: 40px;
+  }
+
+  .menu .menu-item {
+    border-bottom: 1px solid white;
+    padding: 15px 10px;
   }
 }

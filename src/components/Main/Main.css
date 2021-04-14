@@ -1,0 +1,66 @@
+.main {
+  display: flex;
+  padding-bottom: 32px;
+  width: 100%;
+}
+
+.hero-image {
+  box-sizing: border-box;
+  max-width: 420px;
+  min-width: 320px;
+  padding: 88px 15px 0 15px;
+}
+
+.hero-image > img {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.hero-image .details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hero-banner {
+  flex: 1;
+}
+
+.hero-banner .be-active {
+  color: #eb5757;
+  font-size: 2em;
+}
+
+.text-banner {
+  padding: 10px 30px;
+  width: 50%;
+}
+
+.coffee-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.coffee-cup {
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.coffee-cup .view-more {
+  background-color: white;
+  box-shadow: 0px 10px 5px #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: center;
+  width: 150px;
+}
+
+.coffee-cup .view-more > img {
+  display: block;
+  margin: 0 auto;
+  width: 22%;
+}
