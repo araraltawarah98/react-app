@@ -20,6 +20,11 @@ CoffeeItem.protoTypes = {
   alt: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  children: PropTypes.element,
+};
+
+CoffeeItem.defaultProps = {
+  children: null,
 };
 
 export default CoffeeItem;

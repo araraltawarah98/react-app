@@ -15,9 +15,7 @@ function GridItems() {
             src={element.src}
             title={element.alt}
           >
-            <Link to={"/about-us/" + element.id}>
-              <button>Click</button>
-            </Link>
+            <Link to={"/about-us/" + element.id}>Click</Link>
           </CoffeeItem>
         );
       })}
