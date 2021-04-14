@@ -49,7 +49,7 @@ function SignUp() {
 
     if (!handleDisplay && selected !== "Choose Your City") {
       localStorage.setItem(email, userData());
-      history.useHistory("/home");
+      history.push("/home");
     }
   };
 

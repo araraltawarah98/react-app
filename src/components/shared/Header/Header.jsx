@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
   logo,
@@ -12,6 +12,7 @@ import "./Header.css";
 
 function Header({ active, onActive }) {
   const [isDisplayed, setIsDisplayed] = useState(false);
+  let location = useLocation();
 
   /**
    * Checks the active value to add class "active"
@@ -39,41 +40,49 @@ function Header({ active, onActive }) {
   }
 
   return (
-    <div className="header">
-      <div className="logo">
-        <img alt={logo.alt} src={logo.src} />
-      </div>
-      <div className="menu-icon" onClick={() => onMenu()}>
-        <img alt={menuIcon.alt} src={menuIcon.src} />
-      </div>
-      <div className={"menu " + toggleDisplay()}>
-        <ul>
-          {menuItems.map((element) => {
-            return (
-              <li
-                className={"menu-item " + addActiveClass(active, element.name)}
-                key={element.id}
-                onClick={() => onActive(element.name)}
-              >
-                <Link to={"/" + element.name}>{element.label}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div className="wrapper-side">
-        <img
-          alt={shoopingCardImage.alt}
-          className="shopping-card"
-          src={shoopingCardImage.src}
-        />
-        <img
-          alt={profileImage.alt}
-          className="profile-picture"
-          src={profileImage.src}
-        />
-      </div>
-    </div>
+    <>
+      {location.pathname === "/signup" ? (
+        <></>
+      ) : (
+        <div className="header">
+          <div className="logo">
+            <img alt={logo.alt} src={logo.src} />
+          </div>
+          <div className="menu-icon" onClick={() => onMenu()}>
+            <img alt={menuIcon.alt} src={menuIcon.src} />
+          </div>
+          <div className={"menu " + toggleDisplay()}>
+            <ul>
+              {menuItems.map((element) => {
+                return (
+                  <li
+                    className={
+                      "menu-item " + addActiveClass(active, element.name)
+                    }
+                    key={element.id}
+                    onClick={() => onActive(element.name)}
+                  >
+                    <Link to={"/" + element.name}>{element.label}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="wrapper-side">
+            <img
+              alt={shoopingCardImage.alt}
+              className="shopping-card"
+              src={shoopingCardImage.src}
+            />
+            <img
+              alt={profileImage.alt}
+              className="profile-picture"
+              src={profileImage.src}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -82,4 +91,4 @@ Header.protoTypes = {
   onActive: PropTypes.func.isRequired,
 };
 
-export default withRouter(Header);
+export default Header;
