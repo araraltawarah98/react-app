@@ -7,7 +7,7 @@ function AboutUs() {
   const { id } = useParams();
 
   const getCoffeeItem = () => {
-    return coffeeItems.find((element) => element.id === parseInt(id));
+    return coffeeItems.find((element) => element.id === Number(id));
   };
 
   return (
