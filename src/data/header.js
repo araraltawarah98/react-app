@@ -1,6 +1,6 @@
 import coffeeBeans from "../assets/images/coffee-beans.png";
-import menuIcon from "../assets/images/menu-button-of-three-horizontal-lines.png";
-import profileImage from "../assets/images/profile-image.png";
+import menuButton from "../assets/images/menu-button-of-three-horizontal-lines.png";
+import profile from "../assets/images/profile-image.png";
 import shoppingCard from "../assets/images/shopping-card.png";
 
 const images = [
@@ -12,12 +12,12 @@ const images = [
   {
     alt: "Menu Icon",
     id: 2,
-    src: menuIcon,
+    src: menuButton,
   },
   {
     alt: "Profile Image",
     id: 3,
-    src: profileImage,
+    src: profile,
   },
   {
     alt: "Shopping Card",
@@ -25,6 +25,11 @@ const images = [
     src: shoppingCard,
   },
 ];
+
+const logo = images[0];
+const menuIcon = images[1];
+const profileImage = images[2];
+const shoopingCardImage = images[3];
 
 const menuItems = [
   { name: "home", label: "Home", id: 1 },
@@ -35,4 +40,4 @@ const menuItems = [
   { name: "contact-us", label: "Contact Us", id: 6 },
 ];
 
-export { images, menuItems };
+export { logo, menuIcon, menuItems, profileImage, shoopingCardImage };

@@ -1,10 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Option extends Component {
-  render() {
-    const { city } = this.props;
-    return <option value={city}>{city}</option>;
-  }
+function Option({ city }) {
+  return <option value={city}>{city}</option>;
 }
 
 export default Option;

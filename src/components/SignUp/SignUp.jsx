@@ -1,121 +1,118 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import cities from "../../data/cities";
-import fields from "../../data/fields";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import cities_ from "../../data/cities";
+import fields_ from "../../data/fields";
 import Form from "../Form/Form";
 import FormField from "../Form/FormField";
 import Option from "../Form/Option";
 
-class SignUp extends Component {
-  state = {
-    cities,
-    email: "",
-    fields,
-    selected: "Choose Your City",
+function SignUp() {
+  const [cities] = useState(cities_);
+  const [email, setEmail] = useState("");
+  const [fields, setFields] = useState(fields_);
+  const [selected, setSelected] = useState("Choose Your City");
+  const history = useHistory();
+
+  const getValue = (name) => {
+    return fields.find((element) => element.name === name).value;
   };
 
-  getValue = (name) => {
-    return this.state.fields.find((element) => element.name === name).value;
-  };
-
-  handleValidateInput = (event, name) => {
+  const handleValidateInput = (event, name) => {
     const inputValue = event.target.value;
     switch (name) {
       case "Company":
-        this.setValue(inputValue, name);
-        this.validateCompany(name);
+        setValue(inputValue, name);
+        validateCompany(name);
         break;
       case "Confirm Password":
-        this.setValue(inputValue, name);
-        this.validateConfirmPassword(name);
+        setValue(inputValue, name);
+        validateConfirmPassword(name);
         break;
       case "Email":
-        this.setValue(inputValue, name);
-        this.validateEmail(name);
+        setValue(inputValue, name);
+        validateEmail(name);
         break;
       case "Password":
-        this.setValue(inputValue, name);
-        this.validatePassword(name);
+        setValue(inputValue, name);
+        validatePassword(name);
         break;
     }
   };
 
-  handleSumbit = (event) => {
+  const handleSumbit = (event) => {
     event.preventDefault();
-    this.validateCompany("Company");
-    this.validateConfirmPassword("Confirm Password");
-    this.validateEmail("Email");
-    this.validatePassword("Password");
-    const handleDisplay = this.state.fields.find(
-      (elemet) => elemet.isDisplayed
-    );
+    validateCompany("Company");
+    validateConfirmPassword("Confirm Password");
+    validateEmail("Email");
+    validatePassword("Password");
+    const handleDisplay = fields.find((elemet) => elemet.isDisplayed);
 
-    if (!handleDisplay && this.state.selected !== "Choose Your City") {
-      localStorage.setItem(this.state.email, this.userData());
-      this.props.history.replace("/");
+    if (!handleDisplay && selected !== "Choose Your City") {
+      localStorage.setItem(email, userData());
+      history.useHistory("/home");
     }
   };
-  
-  setDisplayValue = (name, value) => {
-    const fields = [...this.state.fields];
-    const index = fields.findIndex((element) => element.name === name);
-    fields[index].isDisplayed = value;
-    this.setState({ fields });
+
+  const setDisplayValue = (name, value) => {
+    const fields_ = [...fields];
+    const index = fields_.findIndex((element) => element.name === name);
+    fields_[index].isDisplayed = value;
+    setFields(fields_);
   };
 
-  setValue = (value, name) => {
-    const fields = [...this.state.fields];
-    const index = fields.findIndex((element) => element.name === name);
-    fields[index].value = value;
-    this.setState({ fields });
+  const setValue = (value, name) => {
+    const fields_ = [...fields];
+    const index = fields_.findIndex((element) => element.name === name);
+    fields_[index].value = value;
+    setFields(fields_);
   };
 
-  userData = () => {
+  const userData = () => {
     const data = {};
-    this.state.fields.forEach((element) => {
+    fields.forEach((element) => {
       data[element.name] = element.value;
     });
     return JSON.stringify(data);
   };
 
-  validateCity = (event) => {
+  const validateCity = (event) => {
     const cityValue = event.target.value;
-    this.setState({ selected: cityValue });
+    setSelected(cityValue);
   };
 
-  validateCompany = (name) => {
-    const companyValue = this.getValue(name);
+  const validateCompany = (name) => {
+    const companyValue = getValue(name);
     if (companyValue.trim() === "") {
-      this.setDisplayValue(name, true);
+      setDisplayValue(name, true);
     } else {
-      this.setDisplayValue(name, false);
+      setDisplayValue(name, false);
     }
   };
 
-  validateConfirmPassword = (name) => {
-    const confirmPasswordValue = this.getValue(name);
-    const passwordValue = this.getValue("Password");
+  const validateConfirmPassword = (name) => {
+    const confirmPasswordValue = getValue(name);
+    const passwordValue = getValue("Password");
     if (confirmPasswordValue !== passwordValue || passwordValue === "") {
-      this.setDisplayValue(name, true);
+      setDisplayValue(name, true);
     } else {
-      this.setDisplayValue(name, false);
+      setDisplayValue(name, false);
     }
   };
 
-  validateEmail = (name) => {
-    const emailValue = this.getValue(name);
-    this.setState({ email: emailValue });
+  const validateEmail = (name) => {
+    const emailValue = getValue(name);
+    setEmail(emailValue);
     if (localStorage.getItem(emailValue) || emailValue.trim() === "") {
-      this.setDisplayValue(name, true);
+      setDisplayValue(name, true);
     } else {
-      this.setDisplayValue(name, false);
+      setDisplayValue(name, false);
     }
   };
 
-  validatePassword = (name) => {
+  const validatePassword = (name) => {
     const letter = /[^a-zA-Z]/;
     const number = /\d/;
-    const passwordValue = this.getValue(name);
+    const passwordValue = getValue(name);
     const symbol = /[-!$%^&*()_+|#~=`{}\[\]:";'<>?,.\/]/;
 
     if (
@@ -123,62 +120,59 @@ class SignUp extends Component {
       !letter.test(passwordValue) ||
       !number.test(passwordValue)
     ) {
-      this.setDisplayValue(name, true);
+      setDisplayValue(name, true);
     } else {
-      this.setDisplayValue(name, false);
+      setDisplayValue(name, false);
     }
   };
 
-  render() {
-    return (
-      <Form>
-        <h2 className="text-center">Create account</h2>
-        <form className="form" onSubmit={this.handleSumbit}>
-          {this.state.fields.map((element) => {
-            return (
-              <FormField
-                error={element.error}
-                errorMessage={element.errorMessage}
-                handleChange={this.handleValidateInput}
-                isDisplayed={element.isDisplayed}
-                key={element.id}
-                name={element.name}
-                placeholder={element.placeholder}
-                type={element.type}
-                value={element.value}
-              />
-            );
-          })}
-          <div className="form-field">
-            <label htmlFor="city">City</label>
-            <select
-              id="city"
-              name="city"
-              onChange={this.validateCity}
-              value={this.state.selected}
-            >
-              <option disabled>Choose Your City</option>
-              {this.state.cities.map((element) => {
-                return <Option city={element.name} key={element.id} />;
-              })}
-            </select>
-            <div
-              className="error-message city-error"
-              style={{
-                display:
-                  this.state.selected === "Choose Your City" ? "block" : "none",
-              }}
-            >
-              <span>Please select a city</span>
-            </div>
+  return (
+    <Form>
+      <h2 className="text-center">Create account</h2>
+      <form className="form" onSubmit={handleSumbit}>
+        {fields.map((element) => {
+          return (
+            <FormField
+              error={element.error}
+              errorMessage={element.errorMessage}
+              handleChange={handleValidateInput}
+              isDisplayed={element.isDisplayed}
+              key={element.id}
+              name={element.name}
+              placeholder={element.placeholder}
+              type={element.type}
+              value={element.value}
+            />
+          );
+        })}
+        <div className="form-field">
+          <label htmlFor="city">City</label>
+          <select
+            id="city"
+            name="city"
+            onChange={validateCity}
+            value={selected}
+          >
+            <option disabled>Choose Your City</option>
+            {cities.map((element) => {
+              return <Option city={element.name} key={element.id} />;
+            })}
+          </select>
+          <div
+            className="error-message city-error"
+            style={{
+              display: selected === "Choose Your City" ? "block" : "none",
+            }}
+          >
+            <span>Please select a city</span>
           </div>
-          <div className="form-field">
-            <button type="submit">create account</button>
-          </div>
-        </form>
-      </Form>
-    );
-  }
+        </div>
+        <div className="form-field">
+          <button type="submit">create account</button>
+        </div>
+      </form>
+    </Form>
+  );
 }
 
-export default withRouter(SignUp);
+export default SignUp;
