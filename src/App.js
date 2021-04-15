@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { AboutPage, HomePage, SignUpPage } from "./pages";
+import { AboutPage, CardsPage, HomePage, SignUpPage } from "./pages";
 import { Header } from "./components";
 import "./App.css";
 
@@ -27,6 +27,9 @@ function App() {
         </Switch>
         <Switch>
           <Route exact path={"/signup"} component={SignUpPage} />
+        </Switch>
+        <Switch>
+          <Route exact path={"/items"} component={CardsPage} />
         </Switch>
       </div>
     </Router>
