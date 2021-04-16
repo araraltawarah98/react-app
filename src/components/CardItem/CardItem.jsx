@@ -18,6 +18,7 @@ function CardItem({ alt, handleIncrement, id, src, text, title }) {
         <h3 className="card-title">{title}</h3>
         <p className="card-text">{text}</p>
         <button
+          className="card-button"
           onClick={() => {
             handleActive();
             handleIncrement(id);
