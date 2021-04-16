@@ -6,7 +6,9 @@ function CardItem({ alt, handleIncrement, id, src, text, title }) {
   const [activeCard, setActiveCard] = useState("");
 
   function handleActive() {
-    setActiveCard(oldActiveCard => oldActiveCard === "active-card" ? "" : "active-card");
+    setActiveCard((oldActiveCard) =>
+      oldActiveCard === "active-card" ? "" : "active-card"
+    );
   }
 
   return (
@@ -18,7 +20,7 @@ function CardItem({ alt, handleIncrement, id, src, text, title }) {
         <button
           onClick={() => {
             handleActive();
-            handleIncrement(id, activeCard);
+            handleIncrement(id);
           }}
         >
           BUTTON
@@ -32,7 +34,8 @@ export default CardItem;
 
 CardItem.protoTypes = {
   alt: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   src: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };

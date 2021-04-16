@@ -3,8 +3,8 @@ import CardItem from "../CardItem/CardItem";
 import "./GridCards.css";
 
 function GridCards() {
-  const [items, setItems] = useState([]);
   const [counter, setCounter] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/photos")
@@ -15,19 +15,17 @@ function GridCards() {
       .catch((error) => console.log(error));
   }, []);
 
-  function handleIncrement(id, active) {
-    if (active === "") {
-      setCounter([...counter, { id, active }]);
+  function handleIncrement(id) {
+    if (counter.some((element) => element === id)) {
+      setCounter(counter.filter((element) => element !== id));
     } else {
-      setCounter(
-        counter.filter((element) => element.id === id && element.active === "")
-      );
+      setCounter([...counter, id]);
     }
   }
 
   return (
     <>
-      {"Counter " + counter.length}
+      <h3>{"Counter " + counter.length}</h3>
       <div className="grid-cards">
         {items.map((element) => {
           return (

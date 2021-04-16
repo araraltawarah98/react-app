@@ -55,8 +55,3 @@ p {
   border: 0;
   color: #39c0ed;
 }
-
-#card-active-count {
-  display: inline-block;
-  margin-left: 32px;
-}
