@@ -1,0 +1,46 @@
+.form {
+  padding: 30px 0;
+}
+
+.error-message {
+  background-color: rgb(235, 92, 92);
+  box-sizing: border-box;
+  color: white;
+  display: none;
+  margin-top: 5px;
+  padding: 13px 7px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 14px auto;
+  min-width: 240px;
+  width: 50%;
+}
+
+.input-field {
+  border: none;
+  box-sizing: border-box;
+  margin-top: 5px;
+  padding: 15px 7px;
+  width: 100%;
+}
+
+button {
+  background-color: #335368;
+  border: none;
+  color: white;
+  display: block;
+  font-size: 16px;
+  padding: 15px 32px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+select {
+  display: block;
+  height: 3.2em;
+  margin-top: 5px;
+  width: 100%;
+}
