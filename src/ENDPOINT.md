@@ -1,7 +1,4 @@
-### hello world
-```javascript
-  
-```# End point
+# End point
 
 
 ### [GET][users] https://607fda4ca5be5d00176dc644.mockapi.io/api/v1/users :
@@ -44,8 +41,7 @@ password: "password 2",
 ### [PATCH][user] https://607fda4ca5be5d00176dc644.mockapi.io/api/v1/users/:id
 
 
-### [GET][coffee-items]
-https://607fda4ca5be5d00176dc644.mockapi.io/api/v1/coffee-items
+### [GET][coffee-items] https://607fda4ca5be5d00176dc644.mockapi.io/api/v1/coffee-items
 
 ##### Response 
 ``` javascript
