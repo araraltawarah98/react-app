@@ -71,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### End point
 
-The link for end point: https://draftin.com/documents/1611235
+The link for End point: https://draftin.com/documents/1611235
